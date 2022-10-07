@@ -3,30 +3,31 @@ import { useEffect, useState } from "react";
 import { ButtonDefault } from "../../components/ButtonDefault";
 import { HeaderDefault } from "../../components/HeaderDefault";
 import { Sidebar } from "../../components/Sidebar";
+
+import axios from "axios";
 import { URI } from "../../integration/uri";
 
 import {Main,Table,TableTH,TableTD,TableTDButton} from "./styles";
 import THEME from "../../styles/theme";
 
-import axios from "axios";
-import { IStation } from "../../integration/station";
-
 export function StationList() {
-  const [stationList, setStationList] = useState([]);
+  const [stations, setStations] = useState([])
 
-  function getStationData() {
-    axios.get(URI.STATIONS)
-    .then((response) => {
-      setStationList(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+  const handleGetAll = async () => {
+    const res = await axios.get(URI.STATIONS)
+    return res.data
+  }
+
+  const getAllStations = async () => {
+    const allStations: [] = await handleGetAll()
+    setStations(allStations);
+    console.log(allStations);
   }
 
   useEffect(() => {
-    getStationData();
+    getAllStations()
   }, []);
+
 
   return (
     <>
@@ -46,7 +47,7 @@ export function StationList() {
         </thead>
 
         <tbody>
-          {stationList.map((station:IStation) => (
+          {stations.map((station:any) => (
             <tr key={station.id}>
               <TableTD>{station.id}</TableTD>
               <TableTD>{station.name}</TableTD>
