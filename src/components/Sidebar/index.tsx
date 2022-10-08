@@ -10,7 +10,7 @@ import {
   Logo,
 } from './styles';
 
-import logo from '../../assets/images/logo.svg';
+import logo from '../../assets/icons/logo.svg';
 
 
 export function Sidebar() {
