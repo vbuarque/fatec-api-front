@@ -5,15 +5,19 @@ export const StyledMapContainer = styled.div`
   margin: 6rem 1.5rem 0 17rem;
   padding: 0 0 2.375rem 0;
   border-bottom: 2px solid ${props => props.theme.colors.gray};
+
+  transition: 0.2s ease-in-out;
+
+  @media (max-width: 768px) {
+    margin: 6rem 1.5rem 0 1.5rem;
+  }
 `;
 
 export const StyledMap = styled(MapContainer)`
     width: 100%;
     height: 300px;
     border: 1px solid ${props => props.theme.colors.green_100};
-
     z-index: 5;
-
     border-radius: 0.5rem;
 `;
 
@@ -22,6 +26,12 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
+  
+  transition: 0.2s ease-in-out;
+
+  @media (max-width: 768px) {
+    margin: 0 1.5rem 1rem 1.5rem;
+  }
 `;
 
 export const LoadingContainer = styled.div`
