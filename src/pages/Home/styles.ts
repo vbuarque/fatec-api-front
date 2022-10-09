@@ -32,6 +32,10 @@ export const Container = styled.div`
   @media (max-width: 768px) {
     margin: 0 1.5rem 1rem 1.5rem;
   }
+
+  @media (max-width: 530px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const LoadingContainer = styled.div`
