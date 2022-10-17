@@ -1,22 +1,22 @@
 import { useState, useEffect } from "react";
 import { CircularProgress } from "@mui/material";
 
+import CardStation from "../../components/CardStation";
 import { HeaderDefault } from "../../components/HeaderDefault";
 import { Sidebar } from "../../components/Sidebar";
 import { TileLayer, Marker, Popup } from "react-leaflet";
 import {
   StyledMap,
   StyledMapContainer,
-  Container,
   LoadingContainer,
+  Container
 } from "./styles";
-
-import L from "leaflet";
-import StationIcon from "../../assets/icons/satelliteIcon.svg";
-import CardStation from "../../components/CardStation";
 
 import FatecImg from "../../assets/images/fatecImg.jpg";
 import EscolaImg from "../../assets/images/escolaImg.png";
+
+import L from "leaflet";
+import StationIcon from "../../assets/icons/satelliteIcon.svg";
 
 const markerIcon = new L.Icon({
   iconUrl: StationIcon,
@@ -25,7 +25,7 @@ const markerIcon = new L.Icon({
   popupAnchor: [0, -10],
 });
 
-export default function Home() {
+export function Home() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -74,7 +74,7 @@ export default function Home() {
           </LoadingContainer>
         )}
       </StyledMapContainer>
-      
+
       <Container>
         {isLoading ? (
           <CardStation
@@ -103,3 +103,5 @@ export default function Home() {
     </>
   );
 }
+
+

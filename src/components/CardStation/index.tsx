@@ -11,6 +11,7 @@ import {
     StationCardInfo,
     StationCardImage,
 } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 type StationCardProps = ImgHTMLAttributes<HTMLImageElement> & {
     stationName: string;
@@ -20,6 +21,8 @@ type StationCardProps = ImgHTMLAttributes<HTMLImageElement> & {
 
 
 export default function CardStation({ stationName, stationImage, stationInfo }: StationCardProps) {
+  const navigate = useNavigate();
+
     return (
         <StationCard>
           <StationCardHeader>
@@ -39,6 +42,7 @@ export default function CardStation({ stationName, stationImage, stationInfo }: 
             heightButton="48px"
             backgroundButton={THEME.colors.green_100}
             hoverBackgroundButton={THEME.colors.green_50}
+            onClick={() => navigate('/station-details')}
           />
         </StationCard>
     );
